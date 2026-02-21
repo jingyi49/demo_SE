@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Speech Enhancement Demo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f9f9f9;
+    }
+    h1 {
+        margin-bottom: 30px;
+    }
+    .sample {
+        background: white;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .audio-box {
+        flex: 1;
+        min-width: 250px;
+    }
+    audio {
+        width: 100%;
+    }
+    h3 {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Speech Enhancement Comparison Demo</h1>
+
+<div id="content"></div>
+
+<script>
+
+const files = [
+    "reverb_fileid_93.wav",
+    "noreverb_fileid_89.wav",
+    "noreverb_fileid_51.wav",
+    "reverb_fileid_2.wav",
+    "noreverb_fileid_149.wav",
+    "noreverb_fileid_43.wav",
+    "reverb_fileid_85.wav",
+    "reverb_fileid_137.wav",
+    "noreverb_fileid_139.wav"
+];
+
+const container = document.getElementById("content");
+
+files.forEach(file => {
+
+    const block = document.createElement("div");
+    block.className = "sample";
+
+    block.innerHTML = `
+        <h2>${file}</h2>
+        <div class="row">
+            <div class="audio-box">
+                <h3>Noisy</h3>
+                <audio controls>
+                    <source src="noisy_demo/${file}" type="audio/wav">
+                </audio>
+            </div>
+            <div class="audio-box">
+                <h3>LLASE</h3>
+                <audio controls>
+                    <source src="llase/${file}" type="audio/wav">
+                </audio>
+            </div>
+            <div class="audio-box">
+                <h3>Ours</h3>
+                <audio controls>
+                    <source src="ours/${file}" type="audio/wav">
+                </audio>
+            </div>
+        </div>
+    `;
+
+    container.appendChild(block);
+});
+
+</script>
+
+</body>
+</html>
