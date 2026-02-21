@@ -44,23 +44,21 @@
 <div id="content"></div>
 
 <script>
-
 const files = [
-    "reverb_fileid_93.wav",
-    "noreverb_fileid_89.wav",
-    "noreverb_fileid_51.wav",
     "reverb_fileid_2.wav",
-    "noreverb_fileid_149.wav",
-    "noreverb_fileid_43.wav",
     "reverb_fileid_85.wav",
+    "reverb_fileid_93.wav",
     "reverb_fileid_137.wav",
-    "noreverb_fileid_139.wav"
+    "noreverb_fileid_43.wav",
+    "noreverb_fileid_51.wav",
+    "noreverb_fileid_89.wav",
+    "noreverb_fileid_139.wav",
+    "noreverb_fileid_149.wav"
 ];
 
 const container = document.getElementById("content");
 
 files.forEach(file => {
-
     const block = document.createElement("div");
     block.className = "sample";
 
@@ -80,6 +78,12 @@ files.forEach(file => {
                 </audio>
             </div>
             <div class="audio-box">
+                <h3>FRCRN_SE_16K</h3>
+                <audio controls>
+                    <source src="FRCRN_SE_16K/${file}" type="audio/wav">
+                </audio>
+            </div>
+            <div class="audio-box">
                 <h3>Ours</h3>
                 <audio controls>
                     <source src="ours/${file}" type="audio/wav">
@@ -90,7 +94,6 @@ files.forEach(file => {
 
     container.appendChild(block);
 });
-
 </script>
 
 </body>
